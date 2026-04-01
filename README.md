@@ -38,7 +38,6 @@ The application generates `.csv` reports for specific analytical needs:
 * **Language:** C++ (Modern C++ elements like lambdas, smart pointers, uniform initialization).
 * **Structure:** Code is modular, organized into separate `.h` and `.cpp` files for each class.
 * **Data Structures:** Extensively uses STL (vectors, lists, queues) based on operational needs.
-* **Design Patterns:** Implements Singleton and Factory patterns for optimal architecture.
 * **Error Handling:** The program does not crash on invalid data; it reports the error with a clear message (e.g., invalid CNP) and continues processing valid lines.
 
 ---
