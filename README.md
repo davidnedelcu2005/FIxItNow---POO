@@ -1,1 +1,54 @@
-FixItNow - Home Appliance Repair Service Management 🛠️An Object-Oriented C++ application designed to simulate and manage the daily operations of an authorized home appliance repair service.📖 About the ProjectFixItNow is a comprehensive management system that handles employees, appliances, and repair requests. It features a real-time simulation engine that automatically allocates repair tasks to technicians and processes them over time (ticks). The project strictly adheres to OOP and SOLID principles, utilizing Modern C++ features and STL containers.✨ Core Features1. Employee ManagementThe system manages a team of three types of employees: Technicians, Receptionists, and Supervisors.CRUD Operations: Add, modify, or remove employees (e.g., handling resignations or name changes).Dynamic Payroll System: Calculates current month's salary starting from a 4000 RON base. It includes a 5% loyalty bonus for every 3 years worked, a 400 RON transport bonus for employees living outside Bucharest, a 20% management bonus for Supervisors, and a 2% repair value commission for Technicians.2. Appliance ManagementThe service handles multiple types of appliances: Refrigerators, TVs, and Washing Machines.Tracks specific details like freezer presence (fridges), diagonal size in cm/inches (TVs), and capacity in kg (washing machines).Allows adding/removing repairable brands and models, alongside their catalog price and manufacturing year.3. Real-Time Request SimulationReceptionists register repair requests, which are then dynamically handled.Auto-Assignment: Valid requests are automatically assigned to Technicians based on their brand/type specialization.Load Balancing: Technicians can have a maximum of 3 active requests, and the system ensures an equal workload distribution among them.Time-Tick Processing: The simulation runs in discrete time units (1 tick = 1 second). At each tick, the system reduces remaining repair time, finalizes completed repairs, and attempts to allocate pending requests.Live Status: Outputs real-time messages about which technician is processing or finalizing which request.4. Automated ReportingThe application generates .csv reports for specific analytical needs:Top 3 employees with the highest current salary, sorted by name.Detailed technical data of the technician with the longest ongoing repair.Pending requests grouped by appliance type, brand, and model, sorted alphabetically.💻 Technical ArchitectureLanguage: C++ (Modern C++ elements like lambdas, smart pointers, uniform initialization).Structure: Code is modular, organized into separate .h and .cpp files for each class.Data Structures: Extensively uses STL (vectors, lists, queues) based on operational needs.Design Patterns: Implements Singleton and Factory patterns for optimal architecture.Error Handling: The program does not crash on invalid data; it reports the error with a clear message (e.g., invalid CNP) and continues processing valid lines.🧪 Testing (tests/ directory)To ensure the correct functionality of the application, several test files are included in the tests/ directory. These .csv files are used to simulate real-world usage and edge cases:angajati_valizi.csv: Contains correctly formatted data for valid Receptionists, Technicians, and Supervisors to test successful instantiations.angajati_invalizi.csv: Contains corrupted or incorrect employee data (e.g., invalid CNPs, underage employees) to test the system's error reporting without crashing.cereri_valide.csv: Contains valid repair requests for known appliance models to test the auto-assignment and simulation flow.cereri_invalide.csv: Contains requests for unrecognized models or unrepairable appliances to verify that they are correctly rejected and stored as invalid.These test scenarios validate boundary cases and ensure the workload balancing among technicians functions correctly during the simulation
+# FixItNow - Home Appliance Repair Service Management 🛠️
+
+> An Object-Oriented C++ application designed to simulate and manage the daily operations of an authorized home appliance repair service.
+
+---
+
+## 📖 About the Project
+FixItNow is a comprehensive management system that handles employees, appliances, and repair requests. It features a real-time simulation engine that automatically allocates repair tasks to technicians and processes them over time (ticks). The project strictly adheres to OOP and SOLID principles, utilizing Modern C++ features and STL containers.
+
+## ✨ Core Features
+
+### 1. Employee Management
+The system manages a team of three types of employees: Technicians, Receptionists, and Supervisors.
+* **CRUD Operations:** Add, modify, or remove employees (e.g., handling resignations or name changes).
+* **Dynamic Payroll System:** Calculates current month's salary starting from a 4000 RON base. It includes a 5% loyalty bonus for every 3 years worked, a 400 RON transport bonus for employees living outside Bucharest, a 20% management bonus for Supervisors, and a 2% repair value commission for Technicians.
+
+### 2. Appliance Management
+The service handles multiple types of appliances: Refrigerators, TVs, and Washing Machines.
+* Tracks specific details like freezer presence (fridges), diagonal size in cm/inches (TVs), and capacity in kg (washing machines).
+* Allows adding/removing repairable brands and models, alongside their catalog price and manufacturing year.
+
+### 3. Real-Time Request Simulation
+Receptionists register repair requests, which are then dynamically handled.
+* **Auto-Assignment:** Valid requests are automatically assigned to Technicians based on their brand/type specialization.
+* **Load Balancing:** Technicians can have a maximum of 3 active requests, and the system ensures an equal workload distribution among them.
+* **Time-Tick Processing:** The simulation runs in discrete time units (1 tick = 1 second). At each tick, the system reduces remaining repair time, finalizes completed repairs, and attempts to allocate pending requests.
+* **Live Status:** Outputs real-time messages about which technician is processing or finalizing which request.
+
+### 4. Automated Reporting
+The application generates `.csv` reports for specific analytical needs:
+* Top 3 employees with the highest current salary, sorted by name.
+* Detailed technical data of the technician with the longest ongoing repair.
+* Pending requests grouped by appliance type, brand, and model, sorted alphabetically.
+
+---
+
+## 💻 Technical Architecture
+* **Language:** C++ (Modern C++ elements like lambdas, smart pointers, uniform initialization).
+* **Structure:** Code is modular, organized into separate `.h` and `.cpp` files for each class.
+* **Data Structures:** Extensively uses STL (vectors, lists, queues) based on operational needs.
+* **Design Patterns:** Implements Singleton and Factory patterns for optimal architecture.
+* **Error Handling:** The program does not crash on invalid data; it reports the error with a clear message (e.g., invalid CNP) and continues processing valid lines.
+
+---
+
+## 🧪 Testing (`tests/` directory)
+To ensure the correct functionality of the application, several test files are included in the `tests/` directory. These `.csv` files are used to simulate real-world usage and edge cases:
+
+* **`angajati_valizi.csv`**: Contains correctly formatted data for valid Receptionists, Technicians, and Supervisors to test successful instantiations.
+* **`angajati_invalizi.csv`**: Contains corrupted or incorrect employee data (e.g., invalid CNPs, underage employees) to test the system's error reporting without crashing.
+* **`cereri_valide.csv`**: Contains valid repair requests for known appliance models to test the auto-assignment and simulation flow.
+* **`cereri_invalide.csv`**: Contains requests for unrecognized models or unrepairable appliances to verify that they are correctly rejected and stored as invalid.
+
+These test scenarios validate boundary cases and ensure the workload balancing among technicians functions correctly during the simulation.
